@@ -12,6 +12,7 @@ let products = [
 ];
 
 let selectNode = document.getElementById('select');
+let resultNode = document.getElementById('result');
 
 function option() {
   products.forEach((product) => {
@@ -21,5 +22,36 @@ function option() {
     selectNode.appendChild(option);
   });
 }
-
 option();
+
+function result() {
+  let productList = [];
+  let selectedProduct = document.querySelectorAll('#select option:checked');
+  selectedProduct.forEach((option) => {
+    productList.push(option);
+  });
+
+  resultNode.innerHTML = '';
+
+  let shoppingCart = document.createElement('h3');
+  shoppingCart.appendChild(document.createTextNode('선택한 상품'));
+  resultNode.appendChild(shoppingCart);
+
+  let shoppingList = document.createElement('ul');
+  let itemSum = 0;
+
+  productList.forEach((option) => {
+    let shoppingItem = document.createElement('li');
+    shoppingItem.appendChild(document.createTextNode(option.text));
+    shoppingList.appendChild(shoppingItem);
+    itemSum += parseInt(option.value);
+  });
+
+  resultNode.appendChild(shoppingList);
+
+  let sum = document.createElement('h3');
+  sum.appendChild(document.createTextNode(`총액 : ${itemSum}`));
+  resultNode.appendChild(sum);
+}
+
+selectNode.addEventListener('change', result);
