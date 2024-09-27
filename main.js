@@ -55,3 +55,11 @@ function result() {
 }
 
 selectNode.addEventListener('change', result);
+
+function openPayment() {
+  window.open(
+    'payment.html',
+    '_blank',
+    'left=100, top=100, width=300, height=300'
+  );
+}
