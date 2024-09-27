@@ -11,4 +11,15 @@ let products = [
   new Product('중뱃살', 1000),
 ];
 
-console.log(products);
+let selectNode = document.getElementById('select');
+
+function option() {
+  products.forEach((product) => {
+    let option = document.createElement('option');
+    option.value = product.price;
+    option.innerHTML = `${product.name} - ${product.price}`;
+    selectNode.appendChild(option);
+  });
+}
+
+option();
