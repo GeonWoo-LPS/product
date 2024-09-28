@@ -17,8 +17,8 @@
         paymentNode.innerHTML = `${itemSum}원을 결제하겠습니다.`;
       };
 
-      opener.payment = this;
       let successNode = document.getElementById('success');
+
       successNode.addEventListener('click', () => {
         let cardNumberNode = document.getElementById('cardNumber').value;
         opener.alert(
