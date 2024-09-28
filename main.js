@@ -75,3 +75,7 @@ function openPayment() {
     paymentWindow.itemSum = itemSum;
   }
 }
+
+function successPayment() {
+  resultNode.innerHTML = '';
+}
