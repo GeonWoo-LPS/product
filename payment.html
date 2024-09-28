@@ -10,7 +10,7 @@
     <div id="payment"></div>
     <div>신용카드 번호를 입력하고 결제 버튼을 눌러 주세요.</div>
     <input type="text" id="cardNumber" /><br />
-    <button type="button" onclick="success()">결제</button>
+    <button type="button" id="success">결제</button>
     <script>
       window.onload = function () {
         let paymentNode = document.getElementById('payment');
@@ -18,15 +18,15 @@
       };
 
       opener.payment = this;
-
-      function success() {
+      let successNode = document.getElementById('success');
+      successNode.addEventListener('click', () => {
         let cardNumberNode = document.getElementById('cardNumber').value;
         opener.alert(
           `${cardNumberNode}로 ${itemSum}원이 결제 완료 되었습니다.`
         );
         window.close();
         opener.successPayment();
-      }
+      });
     </script>
   </body>
 </html>
