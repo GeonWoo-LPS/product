@@ -21,11 +21,15 @@
 
       successNode.addEventListener('click', () => {
         let cardNumberNode = document.getElementById('cardNumber').value;
-        opener.alert(
-          `${cardNumberNode}로 ${itemSum}원이 결제 완료 되었습니다.`
-        );
-        window.close();
-        opener.successPayment();
+        if (isNaN(cardNumberNode) || cardNumberNode.trim().length == 0) {
+          alert('올바른 카드 번호를 입력해주세요.');
+        } else {
+          opener.alert(
+            `${cardNumberNode}로 ${itemSum}원이 결제 완료 되었습니다.`
+          );
+          window.close();
+          opener.successPayment();
+        }
       });
     </script>
   </body>
