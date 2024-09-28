@@ -57,9 +57,13 @@ function result() {
 selectNode.addEventListener('change', result);
 
 function openPayment() {
-  window.open(
-    'payment.html',
-    '_blank',
-    'left=100, top=100, width=300, height=300'
-  );
+  if (!resultNode.innerHTML) {
+    alert('결제할 상품을 선택해야 합니다.');
+  } else {
+    window.open(
+      'payment.html',
+      '_blank',
+      'left=100, top=100, width=500, height=300'
+    );
+  }
 }
