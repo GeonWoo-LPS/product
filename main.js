@@ -57,13 +57,21 @@ function result() {
 selectNode.addEventListener('change', result);
 
 function openPayment() {
+  let itemSum = 0;
+  let selectedProduct = document.querySelectorAll('#select option:checked');
+
+  selectedProduct.forEach((option) => {
+    itemSum += parseInt(option.value);
+  });
+
   if (!resultNode.innerHTML) {
     alert('결제할 상품을 선택해야 합니다.');
   } else {
-    window.open(
+    let paymentWindow = window.open(
       'payment.html',
       '_blank',
       'left=100, top=100, width=500, height=300'
     );
+    paymentWindow.itemSum = itemSum;
   }
 }
